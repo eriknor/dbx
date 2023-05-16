@@ -8,12 +8,7 @@ class SQLTask(Task):
         for query in queries:
             query["env"] = self.conf["env"]
             if "filename" in query:
-                print(f"{query} -> ")
-                print(f"{{cookiecutter.project_slug}}.{{cookiecutter.pipeline_slug}}")
-                # print(pkg_resources. get_entry_map(''))
                 query_path = pkg_resources.resource_filename("{{cookiecutter.project_slug}}.{{cookiecutter.pipeline_slug}}", f"resources/sql/{query.get('filename')}")
-                print(f"resources/sql/{query.get('filename')} -> {query_path}")
-                print("===========")
                 with open(query_path) as file:
                     for line in file:
                         self.spark.sql(line.rstrip().format_map(query))
