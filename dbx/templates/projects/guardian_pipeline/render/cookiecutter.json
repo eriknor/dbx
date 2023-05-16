@@ -6,5 +6,16 @@
     "pipeline_slug": "{{ cookiecutter.pipeline_name.lower().replace(' ', '_').replace('-', '_') }}",
     "workspace_dir": "/Shared/dbx/{{cookiecutter.project_slug}}/{{cookiecutter.pipeline_slug}}",
     "artifact_location": "dbfs:/Shared/dbx/projects/{{cookiecutter.project_slug}}/{{cookiecutter.pipeline_slug}}",
-    "profile": "DEFAULT"
+    "profile": "DEFAULT",
+    "cloud": [
+        "AWS",
+        "Azure",
+        "Google Cloud"
+    ],
+    "cicd_tool": [
+        "None",
+        "GitHub Actions",
+        "Azure DevOps",
+        "GitLab"
+    ]
 }

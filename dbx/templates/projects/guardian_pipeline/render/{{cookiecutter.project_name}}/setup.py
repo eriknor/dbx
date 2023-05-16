@@ -36,7 +36,8 @@ setup(
     extras_require={"local": LOCAL_REQUIREMENTS, "test": TEST_REQUIREMENTS},
     entry_points = {
         "console_scripts": [
-            "{{cookiecutter.project_slug}}.{{cookiecutter.pipeline_slug}} = {{cookiecutter.project_slug}}.{{cookiecutter.pipeline_slug}}.tasks.sample_etl_task:entrypoint",
+            "{{cookiecutter.project_slug}}.{{cookiecutter.pipeline_slug}}.sqlTask = {{cookiecutter.project_slug}}.{{cookiecutter.pipeline_slug}}.tasks.sample_etl_task:entrypoint",
+            "{{cookiecutter.project_slug}}.{{cookiecutter.pipeline_slug}}.pythonTask = {{cookiecutter.project_slug}}.{{cookiecutter.pipeline_slug}}.tasks.sample_python_task:entrypoint",
     ]},
     version=__version__,
     description="",
