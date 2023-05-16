@@ -36,10 +36,11 @@ setup(
     extras_require={"local": LOCAL_REQUIREMENTS, "test": TEST_REQUIREMENTS},
     entry_points = {
         "console_scripts": [
-            "etl = {{cookiecutter.project_slug}}.tasks.sample_etl_task:entrypoint",
-            "ml = {{cookiecutter.project_slug}}.tasks.sample_ml_task:entrypoint",
+            "{{cookiecutter.project_slug}}.{{cookiecutter.pipeline_slug}} = {{cookiecutter.project_slug}}.{{cookiecutter.pipeline_slug}}.tasks.sample_etl_task:entrypoint",
     ]},
     version=__version__,
     description="",
     author="",
+    # package_dir={"{{cookiecutter.project_slug}}.{{cookiecutter.pipeline_slug}}": "{{cookiecutter.project_slug}}/{{cookiecutter.pipeline_slug}}"},
+    package_data={'': ['resources/sql/*.sql']},
 )

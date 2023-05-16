@@ -8,7 +8,7 @@ from cookiecutter.main import cookiecutter
 from dbx.constants import TEMPLATE_ROOT_PATH
 from dbx.utils import dbx_echo
 
-DEFAULT_TEMPLATE = "python_basic"
+DEFAULT_TEMPLATE = "guardian_pipeline"
 
 
 def init(
