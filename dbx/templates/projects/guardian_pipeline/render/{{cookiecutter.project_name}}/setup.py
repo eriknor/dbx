@@ -8,7 +8,7 @@ Please follow the `entry_points` documentation for more details on how to config
 from setuptools import find_packages, setup
 from {{cookiecutter.project_slug}} import __version__
 
-PACKAGE_REQUIREMENTS = ["pyyaml"]
+PACKAGE_REQUIREMENTS = ["great_expectations","pyyaml"]
 
 # packages for local development and unit testing
 # please note that these packages are already available in DBR, there is no need to install them on DBR.
@@ -18,6 +18,7 @@ LOCAL_REQUIREMENTS = [
     "scikit-learn",
     "pandas",
     "mlflow",
+    #"great_expectations",
 ]
 
 TEST_REQUIREMENTS = [
@@ -38,6 +39,7 @@ setup(
         "console_scripts": [
             "{{cookiecutter.project_slug}}.{{cookiecutter.pipeline_slug}}.sqlTask = {{cookiecutter.project_slug}}.{{cookiecutter.pipeline_slug}}.tasks.sample_etl_task:entrypoint",
             "{{cookiecutter.project_slug}}.{{cookiecutter.pipeline_slug}}.pythonTask = {{cookiecutter.project_slug}}.{{cookiecutter.pipeline_slug}}.tasks.sample_python_task:entrypoint",
+            "{{cookiecutter.project_slug}}.{{cookiecutter.pipeline_slug}}.expectationsTask = {{cookiecutter.project_slug}}.{{cookiecutter.pipeline_slug}}.tasks.sample_great_expectations:entrypoint",
     ]},
     version=__version__,
     description="",

@@ -83,4 +83,12 @@ environments:
               entry_point: "{{project_slug}}.{{pipeline_slug}}.sqlTask" # take a look at the setup.py entry_points section for details on how to define an entrypoint
               parameters: ["--conf-file", "file:fuse://{{project_slug}}/{{pipeline_slug}}/conf/tasks/etl_sqlSequential_config.yml", "--env", ""]
             depends_on:
-              - task_key: "segmentation"   
+              - task_key: "segmentation"
+          - task_key: "expectations"
+            job_cluster_key: "default"
+            python_wheel_task:
+              package_name: "{{project_slug}}"
+              entry_point: "{{project_slug}}.{{pipeline_slug}}.expectationsTask" # take a look at the setup.py entry_points section for details on how to define an entrypoint
+              parameters: ["--conf-file", "file:fuse://{{project_slug}}/{{pipeline_slug}}/conf/tasks/etl_expectations_config.yml", "--env", ""]
+            depends_on:
+              - task_key: "sql_sequential"
