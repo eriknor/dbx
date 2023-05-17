@@ -99,3 +99,40 @@ Please set the following secrets or environment variables for your CI provider:
 git tag -a v<your-project-version> -m "Release tag for version <your-project-version>"
 git push origin --tags
 ```
+
+
+## Building a workflow
+
+### Important Files/Folders
+
+#### project-name/project_slug/pipeline_slug/ 
+
+This is the base folder for all resources used by a the pipeline defined as pipline_slug
+
+##### conf/tasks
+
+This folder holds the configuration files used by tasks within this workflow
+
+##### notebooks
+
+This folder is designed to house any notebooks used by the workflow
+
+##### resources/sql
+
+This folder contains files of sql queries which are to be used in the workflow
+
+##### tasks
+
+This folder contains the code to be executed as tasks in the workflow
+
+#### project-name/tests
+
+This folder contains the code to be executed as unit and integration tests by pytest
+
+#### project-name/setup.py
+
+This file defines the resources and packages to be packaged with deployment wheel.  It also defines the entry points for all tasks.
+
+#### project-name/conf/deployment.yml
+
+This file defines the code to be run on the platform.  Workflows are defined in this file and deployment instructions for various workspaces.
